@@ -97,7 +97,7 @@ store.effect('DECREMENT', async(dispatch, action) => {
   console.log('products', products);
   console.log('EFFECT', action);
   dispatch({type: 'INCREMENT'});
-  //store.betterDispatch({type: 'dispatching-from-a-sideeffect'});
+
 })
 
 store.dispatch({ counter: 1, products: [] });
