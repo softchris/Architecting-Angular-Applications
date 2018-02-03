@@ -19,7 +19,9 @@ export class TodosComponent implements OnInit {
   todo: string;
 
   constructor(private store: Store<AppState>) {
-    this.todos$ = this.store.select('todos');
+    this.todos$ = this.store.select( state => {
+      return state.todos.list;
+    });
   }
 
   ngOnInit() {}

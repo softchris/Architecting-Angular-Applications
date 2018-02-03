@@ -2,12 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { NgModule, Injectable } from '@angular/core';
 
-import { StoreModule, Action } from '@ngrx/store';
+import { StoreModule, Action, combineReducers, compose } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
-import { counterReducer } from './reducer';
 import { TodoModule } from './todo/todo.module';
-import { todosReducer } from './todo/reducer';
+import { todosReducer, reducers } from './todo/reducer';
 
 import { JediModule } from './jedi/jedi.module';
 import { jediListReducer } from './jedi/list.reducer';
@@ -17,7 +16,7 @@ import { productsReducer } from './products/products.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProductsModule } from './products/products.module';
 
-import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
+import { StoreRouterConnectingModule, routerReducer, RouterStateSerializer } from '@ngrx/router-store';
 import { RouterModule } from '@angular/router';
 import { TestingComponent } from './testing.component';
 import { Effect, ofType, Actions } from '@ngrx/effects';
@@ -25,53 +24,34 @@ import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { EffectsModule } from '@ngrx/effects';
-
-@Injectable()
-export class IncrementEffects {
-  /*
-  @Effect()
-  productsAdd$: Observable<Action> = this.actions$.pipe(
-    ofType(ADD_PRODUCT),
-    switchMap(action => this.srv.addProduct(action))
-  );
-  */
-
-  @Effect()
-  products$: Observable<Action> = this.actions$.pipe(
-    ofType('INCREMENT'),
-    switchMap(action => {
-      console.log('increment happened');
-      return of({ type: 'test' });
-    })
-  );
-
-  constructor(private actions$: Actions<Action>) {}
-}
+import { RoutingEffects } from './routing.effects';
+import { MySerializer } from './my-serializer';
+import { ActionReducerMap } from '@ngrx/store/src/models';
+import { CounterModule } from './counter/counter.module';
 
 @NgModule({
   declarations: [AppComponent, TestingComponent],
   imports: [
     BrowserModule,
     StoreModule.forRoot({
-      count: counterReducer,
-      todos: todosReducer,
       jediList: jediListReducer,
       products: productsReducer,
       router: routerReducer
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([RoutingEffects]),
     RouterModule.forRoot([{ path: 'testing', component: TestingComponent }]),
-    //StoreRouterConnectingModule.forRoot({
-    //  stateKey: 'router' // name of reducer key
-    // }),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router' // name of reducer key
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25 //  Retains last 25 states
     }),
     TodoModule,
     JediModule,
-    ProductsModule
+    ProductsModule,
+    CounterModule
   ],
-  providers: [],
+  providers: [{ provide: RouterStateSerializer, useClass: MySerializer }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
