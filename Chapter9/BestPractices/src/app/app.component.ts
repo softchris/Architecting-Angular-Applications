@@ -6,6 +6,7 @@ import { AppState } from "./app-state";
   selector: "app-root",
   template: `
     <app-jedi-list></app-jedi-list>
+    <app-counter></app-counter>
   `
 })
 export class AppComponent {
