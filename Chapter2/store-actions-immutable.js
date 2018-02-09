@@ -49,13 +49,13 @@ const removeProduct = product => {
 
 dispatcher.register(({ type, data }) => {
   switch (type) {
-    case ProductConstants.SELECT_INDEX:
+    case SELECT_INDEX:
       selectIndex(data);
       break;
-    case ProductConstants.CREATE_PRODUCT:
+    case CREATE_PRODUCT:
       createProduct(data);
       break;
-    case ProductConstants.REMOVE_PRODUCT:
+    case REMOVE_PRODUCT:
       removeProduct(data);
   }
 });

@@ -38,11 +38,7 @@ const selectIndex = index => {
 };
 
 const createProduct = product => {
-  if (!store["products"]) {
-    store["products"] = [];
-  }
-
-  store.products = [...store.products, Object.assign(product)];
+  api.createProduct(product);
 };
 
 const removeProduct = product => {

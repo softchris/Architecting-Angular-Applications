@@ -1,4 +1,9 @@
 import { EventEmitter } from "events";
+import {
+  SELECT_INDEX,
+  CREATE_PRODUCT,
+  REMOVE_PRODUCT
+} from "./product.constants";
 
 let store = {};
 
@@ -36,15 +41,15 @@ function removeProduct(product) {
 
 dispatcher.register(({ type, data }) => {
   switch (type) {
-    case ProductConstants.SELECT_INDEX:
+    case SELECT_INDEX:
       selectIndex(data);
       storeInstance.emitChange();
       break;
-    case ProductConstants.CREATE_PRODUCT:
+    case CREATE_PRODUCT:
       createProduct(data);
       storeInstance.emitChange();
       break;
-    case ProductConstants.REMOVE_PRODUCT:
+    case REMOVE_PRODUCT:
       removeProduct(data);
       storeInstance.emitChange();
   }
