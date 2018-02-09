@@ -1,12 +1,13 @@
 let store = {};
 
-function setSelectedItem(index) {
-    store['selectedIndex'] = index;
+function selectIndex(index) {
+  store["selectedIndex"] = index;
 }
 
-dispatcher.register((message) => {
-    switch (message.type) {
-        case 'SELECT_ITEM':
-            setSelectedItem(message.data)
-    }
+dispatcher.register(message => {
+  switch (message.type) {
+    case "SELECT_INDEX":
+      selectIndex(message.data);
+      break;
+  }
 });
