@@ -1,0 +1,8 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "watch": false,
+    "module": "commonjs"
+  },
+  "files": ["bind-callback.ts"]
+}

@@ -1,10 +1,12 @@
 {
-  "name": "chapter5",
+  "name": "observer-subject",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "",
+    "start": "tsc && node app.js"
   },
   "author": "",
   "license": "ISC",

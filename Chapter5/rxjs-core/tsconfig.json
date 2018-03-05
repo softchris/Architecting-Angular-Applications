@@ -1,0 +1,8 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5"
+  },
+  "files": ["Observer.ts", "Observer-with-subsscription.ts", "app.ts"]
+}
