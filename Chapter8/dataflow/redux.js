@@ -1,6 +1,7 @@
 // redux.js
-const { itemsReducer } = require('./reducers');
-const EventEmitter = require('events');
+import { itemsReducer } from "./reducer";
+import EventEmitter from "events";
+
 const emitter = new EventEmitter();
 
 let state = {
@@ -13,24 +14,20 @@ function store(state = { items: [] }, action) {
   };
 }
 
-function getState() {
+export function getState() {
   return state;
 }
 
-function dispatch(action) {
+export function dispatch(action) {
   const oldState = state;
   state = store(state, action);
-  emitter.emit('changed');
+  emitter.emit("changed");
 }
 
-function select(slice) {
+export function select(slice) {
   return state[slice];
 }
 
-function subscribe(cb) {
-  emitter.on('changed', cb);
-}
-
-module.exports = {
-  getState, dispatch, select, subscribe
+export function subscribe(cb) {
+  emitter.on("changed", cb);
 }

@@ -1,5 +1,0 @@
-# run
-
-```
-node app.js
-```

@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { AppState } from "../app-state";
 import { Store } from "@ngrx/store";
 import { INCREMENT, DECREMENT } from "./counter.constant";
-import { getCounter } from "./counter.selector";
 import { increment, decrement } from "./counter.action";
 
 @Component({
@@ -17,7 +16,7 @@ export class CounterComponent implements OnInit {
   counter$;
 
   constructor(private store: Store<AppState>) {
-    this.counter$ = this.store.select(getCounter);
+    this.counter$ = this.store.select("counter");
   }
 
   ngOnInit() {}

@@ -12,3 +12,7 @@ export function counterReducer(state = 0, action: Action) {
       return state;
   }
 }
+
+export interface CounterState {
+  value: number;
+}
