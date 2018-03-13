@@ -1,5 +1,3 @@
-const { getMessages, getOrders } = require('./parallel-functions');
-
 const async = require('async');
 const fs = require('fs');
 

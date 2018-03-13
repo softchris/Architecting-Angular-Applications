@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node bind-callback.js"
+    "start": "tsc && node dist/bind-callback.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies" : {
+    "typescript": "^2.7.2"
+  }
 }

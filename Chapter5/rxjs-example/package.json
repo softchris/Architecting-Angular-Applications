@@ -5,7 +5,10 @@
   "main": "producer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node producer.js"
+    "start:producer": "node producer.js",
+    "start:subscription": "node subscription.js",
+    "start:error": "node error.js",
+    "start:completion": "node completion.js"
   },
   "author": "",
   "license": "ISC",

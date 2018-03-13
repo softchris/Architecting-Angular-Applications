@@ -6,8 +6,8 @@ export class MyObserver {
 }
 
 export class MyObservable {
-  static create(behaviourFn): Observable {
-    return new Observable(behaviourFn);
+  static create(behaviourFn): MyObservable {
+    return new MyObservable(behaviourFn);
   }
   constructor(private behaviourFn) {}
   subscribe(dataFn) {
