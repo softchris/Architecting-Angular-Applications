@@ -23,3 +23,9 @@ Starts a demo with the async library and the parallell function
 ```
 npm run start:parallell
 ```
+
+Starts a demo with the async library and the async map function
+
+```
+start:async-map
+```

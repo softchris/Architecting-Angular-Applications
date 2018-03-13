@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "start:generator": "node generator.js",
-    "start:parallell": "node app-parallell.js"
+    "start:parallell": "node app-parallell.js",
+    "start:async-map" : "node app-map.js"
   },
   "author": "",
   "license": "ISC",
