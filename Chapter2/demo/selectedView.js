@@ -1,7 +1,9 @@
-import store from "./store-with-pubsub";
+import store from "./store";
 
-class View {
-  constructor(store) {
+console.log('selected view loaded');
+
+class SelectedView {
+  constructor() {
     this.index = 0;
     store.addListener(this.notifyChanged.bind(this));
   }
@@ -12,5 +14,5 @@ class View {
   }
 }
 
-const view = new View();
-export default view;
+const view = new SelectedView();
+export default SelectedView;

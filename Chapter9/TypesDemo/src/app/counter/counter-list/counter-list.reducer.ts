@@ -1,4 +1,3 @@
-import { Action } from "@ngrx/store";
 import {
   ADD_COUNTER_ITEM,
   REMOVE_COUNTER_ITEM

@@ -23,4 +23,5 @@ class View {
   }
 }
 
-let view = new View();
+const view = new View();
+export default view;
