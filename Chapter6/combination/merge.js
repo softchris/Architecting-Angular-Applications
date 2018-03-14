@@ -1,3 +1,5 @@
+const Rx = require('rxjs/Rx');
+
 let promiseStream = Rx.Observable.from(new Promise(resolve => resolve("data")));
 
 let stream = Rx.Observable.interval(500).take(3);

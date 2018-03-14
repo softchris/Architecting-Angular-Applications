@@ -1,3 +1,5 @@
+const Rx = require('rxjs/Rx');
+
 let firstStream$ = Rx.Observable.interval(500).take(3);
 
 let secondStream$ = Rx.Observable.interval(500).take(5);

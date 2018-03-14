@@ -1,3 +1,5 @@
+const Rx = require('rxjs/Rx');
+
 let streamWithNumbers$ = Rx.Observable.of(1, 2, 3, 4).max();
 
 // 4
@@ -12,7 +14,7 @@ function comparePeople(firstPerson, secondPerson) {
   return 0;
 }
 
-let streamOfOfObjects$ = Rx.Observable.of(
+let streamOfObjects$ = Rx.Observable.of(
   {
     name: "Yoda",
     age: 999

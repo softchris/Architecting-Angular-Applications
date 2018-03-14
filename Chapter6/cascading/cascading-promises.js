@@ -1,7 +1,3 @@
-login()
-  .then(getUser)
-  .then(getOrders);
-
 // we collect username and password from a form
 const login = (username, password) => {
   return fetch("/login", {
@@ -22,6 +18,7 @@ const getUser = () => {
   }).then(r => r.json());
 };
 
+
 const getOrders = user => {
   return fetch(`/orders/user/${user.id}`, {
     headers: {
@@ -29,3 +26,7 @@ const getOrders = user => {
     }
   }).then(r => r.json());
 };
+
+login()
+  .then(getUser)
+  .then(getOrders);

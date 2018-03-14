@@ -1,4 +1,4 @@
-const stream$ = Rx.Observable.range(1, 99);
+const stream$ = Rx.Observable.range(1, 10);
 
 stream$.subscribe(data => console.log(data));
 // emits 1... 99
