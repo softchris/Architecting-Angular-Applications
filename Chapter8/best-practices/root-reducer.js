@@ -12,7 +12,7 @@ let rootReducer = {};
 
 function registerReducer(reducer) {
   const entry = combineReducers(reducer);
-  return { ...rootReducer, entry };
+  rootReducer = { ...rootReducer, ...entry };
 }
 
 function getRootReducer() {

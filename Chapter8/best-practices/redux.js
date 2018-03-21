@@ -10,7 +10,7 @@ class Store {
     reducerProps.forEach(prop => {
       const specificReducer = this.reducer[prop];
       this.state[prop] = specificReducer(this.state[prop],action);
-    }); 
+    });
   }
 
   getState() {

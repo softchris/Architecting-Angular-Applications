@@ -6,7 +6,7 @@ console.log("list item view has loaded");
 class ListItemsView {
   constructor() {
     this.render();
-    subscribe(this.render);
+    subscribe(this.render.bind(this));
   }
 
   render() {
