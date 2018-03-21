@@ -1,5 +1,5 @@
 # Run
 
 ```
-npm run demo.js
+npm run start
 ```

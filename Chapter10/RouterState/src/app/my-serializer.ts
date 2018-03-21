@@ -13,8 +13,23 @@ export class MySerializer implements RouterStateSerializer<MyState> {
     console.log('serializer');
     console.log('complete router state', routerState);
 
-    const { url, root: { queryParams, firstChild: { params } } } = routerState;
+    const { url, root: { queryParams } } = routerState;
 
-    return { url, queryParams, params };
+    const state = {
+      url,
+      queryParams,
+      params: {}
+    };
+
+    // firstChild will not exist on default route /
+    // for routes products/1 , params will be { id: 1 }
+    if (routerState.root.firstChild) {
+      const { root: { firstChild: { params } } } = routerState;
+      state.params = params;
+    }
+
+    // params?
+
+    return state;
   }
 }
